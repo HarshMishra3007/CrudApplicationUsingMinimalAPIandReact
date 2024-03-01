@@ -63,7 +63,7 @@ app.MapPost("/CRUDMinimalAPI/AddStudent", (LeoContext db, [FromBody] Student stu
 
 //Updating the record
 
-app.MapPut("/CRUDMinimalAPI/UpdateEmployee/{id}", (LeoContext db, int id, Student student) =>
+app.MapPut("/CRUDMinimalAPI/UpdateStudent/{id}", (LeoContext db, int id, Student student) =>
 {
     var st = db.Students.FirstOrDefault(x => x.Id == id);
     if (st == null)
@@ -83,7 +83,7 @@ app.MapPut("/CRUDMinimalAPI/UpdateEmployee/{id}", (LeoContext db, int id, Studen
 
     return Results.NoContent();
 });
-app.MapDelete("/CRUDMinimalAPI/DeleteEmployee/{id}", (LeoContext db, int id) =>
+app.MapDelete("/CRUDMinimalAPI/DeleteStudent/{id}", (LeoContext db, int id) =>
 {
     var employee = db.Students.FirstOrDefault(x => x.Id == id);
     if (employee == null)
